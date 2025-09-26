@@ -22,31 +22,40 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 - Payments tracked for memberships and sessions.
 
 ### ER Diagram:
-*Paste or attach your diagram here*  
-![ER Diagram](er_diagram_fitness.png)
+
+<img width="617" height="479" alt="Screenshot 2025-09-26 105209" src="https://github.com/user-attachments/assets/ce4456f9-ca41-411c-82a2-d57f94506836" />
+
 
 ### Entities and Attributes
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+| **Entity** | **Attributes (PK, FK)**                                            | **Notes**                              |
+| ---------- | ------------------------------------------------------------------ | -------------------------------------- |
+| Member     | MemberID (PK), Name, MembershipType, StartDate                     | Each member unique by MemberID         |
+| Program    | ProgramID (PK), ProgramName, Description                           | Programs like Yoga, Zumba              |
+| Trainer    | TrainerID (PK), Name, Specialization                               | A trainer can handle multiple programs |
+| Session    | SessionID (PK), SessionDate, Type (Personal/Group), TrainerID (FK) | Sessions can be booked individually    |
+| Attendance | AttendanceID (PK), SessionID (FK), MemberID (FK), Status           | Tracks who attended                    |
+| Payment    | PaymentID (PK), MemberID (FK), Amount, Date, Purpose               | Membership fee or session fee          |
 
 ### Relationships and Constraints
 
-| Relationship | Cardinality | Participation | Notes |
-|--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+| **Relationship**         | **Cardinality** | **Participation**   | **Notes**                                      |
+| ------------------------ | --------------- | ------------------- | ---------------------------------------------- |
+| Member–Program           | M:N             | Total on Member     | A member may join many programs                |
+| Program–Trainer          | M:N             | Partial             | A trainer may be assigned to multiple programs |
+| Member–Session (Booking) | M:N             | Partial             | Members book personal/group sessions           |
+| Session–Attendance       | 1:M             | Total on Attendance | Tracks per session attendance                  |
+| Member–Payment           | 1:M             | Total               | Each payment linked to a member                |
 
 ### Assumptions
-- 
-- 
-- 
+- Membership types are predefined (e.g., Monthly, Yearly).
+
+- A session is always handled by at least one trainer.
+
+- Payments can be for membership renewal or personal training.
+
+- Attendance is only recorded for booked sessions.
+
 
 ---
 
