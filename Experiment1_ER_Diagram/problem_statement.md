@@ -73,31 +73,39 @@ The Central Library wants to manage book lending and cultural events.
 - Overdue fines apply for late returns.
 
 ### ER Diagram:
-*Paste or attach your diagram here*  
-![ER Diagram](er_diagram_library.png)
+
+<img width="807" height="615" alt="image" src="https://github.com/user-attachments/assets/7214039b-8c4a-44cd-b26b-ecefee11cd15" />
+
 
 ### Entities and Attributes
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+| **Entity** | **Attributes (PK, FK)**                                       | **Notes**                |
+| ---------- | ------------------------------------------------------------- | ------------------------ |
+| **Member** | MemberID (PK), Name, Contact                                  | Library users            |
+| **Book**   | BookID (PK), Title, Author, Category                          | Books available for loan |
+| **Loan**   | LoanID (PK), MemberID (FK), BookID (FK), LoanDate, ReturnDate | Tracks borrowing         |
+| **Event**  | EventID (PK), EventName, EventDate                            | Library events           |
+| **Room**   | RoomID (PK), RoomName, Capacity                               | Rooms for study/events   |
+
 
 ### Relationships and Constraints
 
-| Relationship | Cardinality | Participation | Notes |
-|--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+| **Relationship**   | **Cardinality** | **Notes**                                |
+| ------------------ | --------------- | ---------------------------------------- |
+| Member–Book (Loan) | M:N (via Loan)  | Members borrow books                     |
+| Loan–Member        | M:1             | Each loan belongs to one member          |
+| Event–Room         | M:1             | Each event is booked in one room         |
+| Member–Event       | M:N             | Members can register for multiple events |
+
 
 ### Assumptions
-- 
-- 
-- 
+- One book can only be borrowed by one member at a time.
+
+- Events always occur in exactly one room.
+
+- Each loan must be associated with a member.
+
+- A member may attend zero or more events.
 
 ---
 
