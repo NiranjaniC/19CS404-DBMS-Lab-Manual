@@ -123,31 +123,47 @@ A popular restaurant wants to manage reservations, orders, and billing.
 - Waiters assigned to serve reservations.
 
 ### ER Diagram:
-*Paste or attach your diagram here*  
-![ER Diagram](er_diagram_restaurant.png)
+![Uploading image.png…]()
+
 
 ### Entities and Attributes
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+| **Entity**       | **Attributes**                                                                                 | **Notes**                                   |
+| ---------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| **Customer**     | Customer_ID (PK), Name, Phone                                                                  | Customer information for reservations or walk-ins |
+| **Reservation**  | Reservation_ID (PK), Date, Time, No_of_Guests, Customer_ID (FK), Waiter_ID (FK), Table_ID (FK) | Stores booking details for each visit             |
+| **Waiter**       | Waiter_ID (PK), Name                                                                           | Waiter assigned to serve the reservation          |
+| **Table**        | Table_ID (PK), Table_No, Capacity                                                              | Tables available for booking or walk-in           |
+| **Order**        | Order_ID (PK), Reservation_ID (FK), Order_DateTime                                             | Food order placed under a reservation             |
+| **Dish**         | Dish_ID (PK), Dish_Name, Price, Category_ID (FK)                                               | Menu items available to order                     |
+| **Category**     | Category_ID (PK), Category_Name                                                                | Type of dish (Starter, Main, Dessert)             |
+| **Order_Detail** | Order_ID (FK), Dish_ID (FK), Quantity                                                          | Links dishes to each order                        |
+| **Bill**         | Bill_ID (PK), Reservation_ID (FK), Food_Amount, Service_Charge, Total_Amount                   | Final bill per reservation                        |
+
 
 ### Relationships and Constraints
 
-| Relationship | Cardinality | Participation | Notes |
-|--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+| **Relationship**     | **Cardinality** | **Participation**         | **Notes**                                 |
+| -------------------- | --------------- | ------------------------- | ----------------------------------------- |
+| Customer–Reservation | 1 : M           | Total on Reservation side | A customer can make many reservations     |
+| Reservation–Waiter   | M : 1           | Partial on Waiter side    | A waiter can serve multiple reservations  |
+| Reservation–Table    | M : 1           | Total on Reservation side | Each reservation is assigned one table    |
+| Reservation–Order    | 1 : M           | Total on both sides       | Each reservation can have multiple orders |
+| Order–Dish           | M : N           | Total on both sides       | Each order can contain multiple dishes    |
+| Dish–Category        | M : 1           | Total on Dish side        | Each dish belongs to a single category    |
+| Reservation–Bill     | 1 : 1           | Total on both sides       | One bill is generated per reservation     |
+
 
 ### Assumptions
-- 
-- 
-- 
+- Customers can either reserve or walk in (a reservation is created for both).
+
+- Each reservation is linked to one table and one waiter.
+
+- One bill is generated per reservation (includes food + service charge).
+
+- Each order can have multiple dishes.
+
+- Dishes are grouped into categories (Starter, Main, Dessert).
 
 ---
 
