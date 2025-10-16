@@ -45,125 +45,143 @@ Used to retrieve records from a table.
 ```sql
 SELECT column1, column2 FROM table_name WHERE condition;
 ```
-**Question 1**
---
--- Paste Question 1 here
 
-```sql
--- Paste your SQL code below for Question 1
+**Question 1**
+
+<img width="1271" height="487" alt="image" src="https://github.com/user-attachments/assets/018e95a4-c18b-44e9-9c6d-a1200d704454" />
+
+**SQL Code**
+```
+UPDATE Employees SET email="not available",commission_pct=0.55 WHERE department_id=110;
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1281" height="310" alt="image" src="https://github.com/user-attachments/assets/12195507-b38d-428b-a1cd-f9ffebc1013b" />
+
+
 
 **Question 2**
----
--- Paste Question 2 here
+<img width="1163" height="539" alt="image" src="https://github.com/user-attachments/assets/5fe7916b-c254-4034-a0b3-20d249771d72" />
 
-```sql
--- Paste your SQL code below for Question 2
+**SQL Code**
+```
+UPDATE Employees SET salary=salary+500,email='updated' WHERE  job_id='SA_REP' and commission_pct>0.15;
 ```
 
 **Output:**
+<img width="1269" height="432" alt="image" src="https://github.com/user-attachments/assets/fcb000ca-e7db-454b-af83-a9c4327eac6d" />
 
-![Output2](output.png)
+
 
 **Question 3**
----
--- Paste Question 3 here
 
-```sql
--- Paste your SQL code below for Question 3
+<img width="853" height="380" alt="image" src="https://github.com/user-attachments/assets/e3ecd012-9a11-447c-b463-230566267ca3" />
+
+**SQL Code**
+```
+UPDATE Suppliers SET address="58 Lakeview, Magnolia" WHERE supplier_id=5;
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1283" height="318" alt="image" src="https://github.com/user-attachments/assets/644e7285-637f-42b5-a9a7-0a9b9e141170" />
+
+
 
 **Question 4**
----
--- Paste Question 4 here
 
-```sql
--- Paste your SQL code below for Question 4
+<img width="949" height="390" alt="image" src="https://github.com/user-attachments/assets/04751082-2202-4b87-98aa-4b77f5681ea5" />
+
+**SQL Code**
+```
+UPDATE Sales SET total_sell_price=quantity*sell_price WHERE product_id=10;
 ```
 
 **Output:**
+<img width="1288" height="437" alt="image" src="https://github.com/user-attachments/assets/09287569-1815-4918-8c76-4095ea8bd822" />
 
-![Output4](output.png)
+
 
 **Question 5**
----
--- Paste Question 5 here
 
-```sql
--- Paste your SQL code below for Question 5
+<img width="702" height="179" alt="image" src="https://github.com/user-attachments/assets/48ac1c5b-f426-4dfc-bda6-a3741ad52de8" />
+
+**SQL Code**
+```
+UPDATE products SET availability=2*availability WHERE product_id=1;
 ```
 
 **Output:**
+<img width="1279" height="202" alt="image" src="https://github.com/user-attachments/assets/583b76df-c65b-4471-b9b0-22a6ab5966ae" />
 
-![Output5](output.png)
 
 **Question 6**
----
--- Paste Question 6 here
 
-```sql
--- Paste your SQL code below for Question 6
+<img width="1275" height="375" alt="image" src="https://github.com/user-attachments/assets/7050a8b1-fc27-4054-9011-c6c2325d717a" />
+
+**SQL Code**
 ```
-
+DELETE FROM Customer WHERE CUST_CITY IS NOT ('New York') AND OUTSTANDING_AMT >5000;
+```
 **Output:**
 
-![Output6](output.png)
+<img width="1276" height="489" alt="image" src="https://github.com/user-attachments/assets/43c26326-772b-496d-aa0c-19f5ce2a1672" />
+
 
 **Question 7**
----
--- Paste Question 7 here
 
-```sql
--- Paste your SQL code below for Question 7
+<img width="997" height="385" alt="image" src="https://github.com/user-attachments/assets/26d352d1-9307-4928-a81f-bad7ef527832" />
+
+**SQL Code**
+```
+DELETE FROM Surgeries WHERE surgery_date='2024-02-28';
 ```
 
 **Output:**
+<img width="1271" height="310" alt="image" src="https://github.com/user-attachments/assets/80ae6318-ee40-49a8-a465-cb8636b8b00e" />
 
-![Output7](output.png)
 
 **Question 8**
----
--- Paste Question 8 here
 
-```sql
--- Paste your SQL code below for Question 8
+<img width="1192" height="432" alt="image" src="https://github.com/user-attachments/assets/72533224-aa3f-4a19-b4ec-a4b7ac8e1104" />
+
+**SQL Code**
+```
+DELETE FROM doctors WHERE specialization IS NULL;
 ```
 
 **Output:**
+<img width="1154" height="796" alt="image" src="https://github.com/user-attachments/assets/f7df8da8-9dbf-4b5f-8d6f-7860e98e7527" />
 
-![Output8](output.png)
 
 **Question 9**
----
--- Paste Question 9 here
 
-```sql
--- Paste your SQL code below for Question 9
+<img width="1314" height="701" alt="image" src="https://github.com/user-attachments/assets/ea781c13-e883-4c84-8d21-b37ce1dcda55" />
+
+**SQL Code**
+```
+DELETE FROM Customer WHERE AGENT_CODE IN ('A003','A008');
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="964" height="721" alt="image" src="https://github.com/user-attachments/assets/3cc972ff-dc9b-41f7-a867-5e9dca5d66de" />
+
 
 **Question 10**
----
--- Paste Question 10 here
 
-```sql
--- Paste your SQL code below for Question 10
+<img width="1227" height="292" alt="image" src="https://github.com/user-attachments/assets/c4f400f4-2b15-4afe-90fe-d6bbf240d3da" />
+
+**SQL Code**
+```
+DELETE FROM Customer WHERE CUST_COUNTRY='UK'AND WORKING_AREA='London' AND GRADE<3;
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="1302" height="342" alt="image" src="https://github.com/user-attachments/assets/0111b6ff-d5bc-4f9f-969b-d106b2027705" />
+
 
 ## RESULT
 Thus, the SQL queries to implement DML commands have been executed successfully.
