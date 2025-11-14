@@ -76,8 +76,60 @@ END;
 - Use a simple cursor to fetch and display employee names and designations.
 - Implement exception handling to catch the relevant exceptions and display appropriate messages.
 
+**CODE**
+```
+-- Step 1: Create Table
+CREATE TABLE employees (
+  emp_id      NUMBER(5),
+  emp_name    VARCHAR2(50),
+  designation VARCHAR2(50)
+);
+
+-- Step 2: Insert sample data
+INSERT INTO employees VALUES (101, 'Alice', 'Manager');
+INSERT INTO employees VALUES (102, 'Bob', 'Developer');
+INSERT INTO employees VALUES (103, 'Charlie', 'Analyst');
+
+-- Step 3: PL/SQL block with a simple cursor and exception handling
+DECLARE
+  CURSOR emp_cursor IS
+    SELECT emp_name, designation FROM employees;
+
+  v_emp_name    employees.emp_name%TYPE;
+  v_designation employees.designation%TYPE;
+  
+  v_found BOOLEAN := FALSE; -- To check if any row is fetched
+
+BEGIN
+  OPEN emp_cursor;
+
+  LOOP
+    FETCH emp_cursor INTO v_emp_name, v_designation;
+    EXIT WHEN emp_cursor%NOTFOUND;
+
+    DBMS_OUTPUT.PUT_LINE('Name: ' || v_emp_name || ', Designation: ' || v_designation);
+    v_found := TRUE;
+  END LOOP;
+
+  CLOSE emp_cursor;
+
+  IF NOT v_found THEN
+    RAISE NO_DATA_FOUND;
+  END IF;
+
+EXCEPTION
+  WHEN NO_DATA_FOUND THEN
+    DBMS_OUTPUT.PUT_LINE('No employee data found.');
+
+  WHEN OTHERS THEN
+    DBMS_OUTPUT.PUT_LINE('An unexpected error occurred: ' || SQLERRM);
+END;
+/
+```
+
+
 **Output:**  
-The program should display the employee details or an error message.
+<img width="1919" height="796" alt="image" src="https://github.com/user-attachments/assets/632de2bc-1f64-4c22-9b02-86c97c5f3323" />
 
 ---
 
