@@ -1,4 +1,4 @@
-<img width="1919" height="801" alt="image" src="https://github.com/user-attachments/assets/16707202-f942-4d60-aa90-3d3c1b4daa91" /># Experiment 8: PL/SQL Cursor Programs
+## Experiment 8: PL/SQL Cursor Programs
 
 ## AIM
 To write and execute PL/SQL programs using cursors and exception handling to manage runtime errors effectively and display appropriate messages.
@@ -224,8 +224,8 @@ END;
 - Use a cursor FOR loop to fetch and display employee names along with their department numbers.
 - Implement exception handling to catch the relevant exceptions.
 
-  **CODE**
-  ```
+**CODE**
+```
   CREATE TABLE employees (
     emp_id NUMBER PRIMARY KEY,
     emp_name VARCHAR2(50),
